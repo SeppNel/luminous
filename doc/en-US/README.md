@@ -1,6 +1,6 @@
 # Luminous: JavaScript events blocker ![Icon](../../images/icons/48.png)
 
-> en-US | [pt-BR](https://gbaptista.github.io/luminous) | [es](doc/es)
+> en-US | [es](../es) | [pt-BR](https://gbaptista.github.io/luminous)
 
 An experimental extension to identify, analyze and block code execution and event collection through *JavaScript* in your browser.
 
@@ -70,7 +70,7 @@ While the book is not published, I suggest the following references to expand yo
     - [Write and talk about it](#write-and-talk-about-it)
     - [Help with translations](#help-with-translations)
   - [Report issues](#report-issues)
-    - [Issues on specific sites](#issues-on-specific-sites)
+    - [Issues on specific websites](#issues-on-specific-websites)
     - [Issues in some browser](#issues-in-some-browser)
   - [Get your hands dirty](#get-your-hands-dirty)
     - [Improve the UI](#improve-the-ui)
@@ -94,7 +94,7 @@ Translate the `.md` files found inside the `doc/` directory and the `.json` file
 
 ### Report issues
 
-#### Issues on specific sites
+#### Issues on specific websites
 
 Had trouble accessing a site because of the extension? Was it slow? Caused errors? Has the site stopped working? Not all events were identified? Open an [*issue*](https://github.com/gbaptista/luminous/issues) and tell us what happened.
 
@@ -159,13 +159,30 @@ This is an experimental project that grew in an uncontrolled way, we do not have
 
 ## Known Issues
 
+- [Without workarounds](#without-workarounds)
+- [With workarounds](#with-workarounds)
+  - [Mozilla Firefox Service Workers](#mozilla-firefox-service-workers)
+
+### Without workarounds
+
  - We did not intercept *inline* codes (`<a onclick="someAction()">`).
 
 
  - A code can be executed before we can inject the interceptor. It's rare, but possible.
 
 
- - Some sites with an absurd amount of *JavaScript* events may slow down the browsing experience because of the data collection on the intercepted codes.
+ - Some websites with an absurd amount of *JavaScript* events may slow down the browsing experience because of the data collection on the intercepted codes.
+
+### With workarounds
+
+#### Mozilla Firefox Service Workers
+
+In *Mozilla Firefox* and derivatives, some websites that use [*Service Workers*](https://developer.mozilla.org/en-US/docs/Web/API/Service_Worker_API) (like [*WhatsApp Web*](https://web.whatsapp.com/)) can block the code interception because of a bug in the interception of headers with the [*Content-Security-Policy*](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Security-Policy) guidelines. The current workaround is to reload the *Service Worker*:
+
+ - Access the *Service Workers* screen at: `about:debugging#workers`
+ - Click on *unregister* in the *Service Worker* of the desired website:
+  ![Service Workers](../../images/doc/global/firefox-service-workers.jpg)
+ - Reload the website.
 
 ## Understanding the code
 
@@ -180,6 +197,8 @@ This is an experimental project that grew in an uncontrolled way, we do not have
 `js/background`:
 
 - `js/background/set_current_tab.js`: Responsible for injecting the current *tab* *ID* into the document.
+
+- `js/background/set_response_headers.js`: Responsible for changing *Content-Security-Policy* *header* of requests.
 
 - `js/background/update_badge.js`: Responsible for updating the counter on the extension icon.
 
@@ -197,6 +216,8 @@ This is an experimental project that grew in an uncontrolled way, we do not have
 `/content/readers`:
 
 - `/content/readers/data.js`: Responsible for reading the data in the *HTML* element of the document that stores the collected details of the interceptions and passes them to the extension.
+
+`/content/injections_controller.js`: Responsible for making decisions about the code injections.
 
 `/content/interceptor.js`: Responsible for intercepting executions of *JavaScript* codes in the context of the document and collecting details about them.
 
