@@ -272,6 +272,16 @@ setInterval(function() {
   }
 }, 450);
 
+//Change CSS
+window.onload=function(){
+    document.getElementById("menu-button").addEventListener("click", function(){
+    document.getElementById("menu").setAttribute("class", "menu_after")
+	});
+    document.getElementById("cont").addEventListener("click", function(){
+    document.getElementById("menu").setAttribute("class", "menu")
+	});
+};
+
 $(document).ready(function() {
   $('title').html(chrome.i18n.getMessage('manifestName'));
   $('#loading').html(chrome.i18n.getMessage('messageLoading'));

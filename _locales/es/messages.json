@@ -23,7 +23,7 @@
   "settingsReadMoreText": { "message": "Lea más sobre" },
   "settingsStorageSyncMdnHref": { "message": "https://developer.mozilla.org/es/Add-ons/WebExtensions/API/storage/sync" },
   "settingsStorageLocalMdnHref": { "message": "https://developer.mozilla.org/es/Add-ons/WebExtensions/API/storage/local" },
-  "settingsClearAllButtonText": { "message": "apagar tudo" },
+  "settingsClearAllButtonText": { "message": "apagar todo" },
   "settingsConfirmWindowText": { "message": "¿estás seguro?" },
   "settingsStorageEmptyText": { "message": "nada almacenado" },
   "settingsTabText": { "message": "Pestaña" },
