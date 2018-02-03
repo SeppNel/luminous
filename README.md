@@ -186,6 +186,7 @@ No *Mozilla Firefox* e derivados, alguns sites que utlizam [*Service Workers*](h
 - [Background](#background)
 - [Content](#content)
 - [Pop-up](#pop-up)
+- [Configurações](#configurações)
 - [Utilidades](#utilidades)
 - [Bibliotecas de terceiros](#bibliotecas-de-terceiros)
 
@@ -227,6 +228,24 @@ Responsáveis por renderizar e cuidar das interações feitas no pop-up que é a
 - `js/popup/popup.js`
 - `css/popup/popup.css`
 
+### Configurações
+
+Responsáveis por renderizar e cuidar das interações feitas nas páginas de configurações:
+
+- `html/settings/stored-data/local.html`
+- `html/settings/stored-data/sync.html`
+- `html/settings/templates/advanced/form.html`
+- `html/settings/templates/stored-data/empty.html`
+- `html/settings/templates/stored-data/json.html`
+- `html/settings/templates/header.html`
+- `html/settings/templates/nav.html`
+- `html/settings/advanced.html`
+- `js/settings/stored-data/local.js`
+- `js/settings/stored-data/sync.js`
+- `js/settings/advanced.js`
+- `js/settings/settings.js`
+- `css/settings/settings.css`
+
 ### Utilidades
 
 - `js/utils/colors.js`: Função utilizada para determinar a cor exibida com base no valor do contador.
@@ -234,9 +253,9 @@ Responsáveis por renderizar e cuidar das interações feitas no pop-up que é a
 
 ### Bibliotecas de terceiros
 
-- `js/vendor/jquery`: [*jQuery JavaScript Library*](https://github.com/jquery/jquery)
-- `js/vendor/mustachejs`: [*Minimal templating with {{mustaches}} in JavaScript*](https://github.com/janl/mustache.js)
-- `js/vendor/tippyjs`: [*A lightweight, vanilla JS tooltip library*](https://github.com/atomiks/tippyjs)
+- `vendor/jquery`: [*jQuery JavaScript Library*](https://github.com/jquery/jquery)
+- `vendor/mustachejs`: [*Minimal templating with {{mustaches}} in JavaScript*](https://github.com/janl/mustache.js)
+- `vendor/tippyjs`: [*A lightweight, vanilla JS tooltip library*](https://github.com/atomiks/tippyjs)
 
 ## Licença
 
